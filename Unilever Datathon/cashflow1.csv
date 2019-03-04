@@ -1,0 +1,4 @@
+Date,opening_balance,material_type,material_cost,payment_term,payment,closing_balance
+01-Jan-13,1000,1,100,50,250,
+01-Feb-13,,1,200,50,150,
+01-Mar-13,,1,500,50,600,

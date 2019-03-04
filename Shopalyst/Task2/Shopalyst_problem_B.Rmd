@@ -1,0 +1,258 @@
+---
+title: "Shopalyst_problem_b"
+Name: "Sai aditya garlapati"
+ID: "18125760054"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(readxl)
+library(data.table)
+library(dplyr)
+library(ggplot2)
+library(reshape2)
+library(plotly)
+library(tidyr)
+library(gridExtra)
+library(caret)
+library(forecast)
+library(kableExtra)
+
+adcamp = read.csv('C:/Users/Aditya/Documents/Hackathons/Shopalyst/Task2/Campaign data.csv')
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Name : Sai aditya 
+## id :18125760054
+
+```{r}
+filter_top10_campaigns = adcamp %>% 
+  filter(Campaign.id %in% c(3001, 13003, 8801, 12502, 11801, 12501, 13001, 12505, 13002, 12503)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_top10_campaigns%>%head(10))
+
+```
+## forecasting Using RNN 
+
+- All the popular top 10 campaigns febraury forecast has been done 
+13003, 8801, 12502, 11801, 12501, 13001, 12505, 13002, 12503
+- forecast for each campaign is done for the next 30 days
+- campaign 1 - id is 3001
+- campaign 2 - id is 13003
+- campaign 3 - id is 12503
+- campaign 4 - id is 8801
+- campaign 5 - id is 12502
+- campaign 6 - id is 11801
+- campaign 7 - id is 12501
+- campaign 8 - id is 13001
+- campaign 9 - id is 12505
+- campaign 10 - id is 13002
+
+
+
+## Campaign 1 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(3001)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+## Campaign 2 Forecast
+
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(13003)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+## Campaign 3 Forecast
+
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(12503)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+## Campaign 4 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c( 8801)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+## Campaign 5 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c( 12502)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+## Campaign 6 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(11801)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+## Campaign 7 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(12501)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+## Campaign 8 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(13001)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+## Campaign 9 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(12505)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))
+```
+
+
+## Campaign 10 Forecast
+```{r}
+filter_campaign = adcamp %>% 
+  filter(Campaign.id %in% c(13002)) %>%
+  group_by(Campaign.id,Date) %>%
+  arrange(Campaign.id,Date)
+
+kable(filter_campaign%>%head(5))
+
+library(caret)
+library(forecast)
+## Warning: package 'caret' was built under R version 3.4.4
+## Loading required package: lattice
+## Loading required package: ggplot2
+## Warning: package 'ggplot2' was built under R version 3.4.4
+fit = nnetar(filter_campaign$Click.count)
+
+plot(forecast(fit,h=30))

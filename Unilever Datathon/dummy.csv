@@ -1,0 +1,5 @@
+months,opening_balance,channel type,channel_cost,payment_term,closing_balance
+01-Jan-13,1000,1,100,50,
+01-Feb-13,,1,150,50,
+01-Mar-13,,1,200,50,
+,,,,,
